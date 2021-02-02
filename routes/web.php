@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 })->where('any', '.*');*/
 
 Route::resource('/task', TaskController::class);
+
+//lists vue
+Route::get('/list',[ListController::class,'index'])->name('userlist');
+
 

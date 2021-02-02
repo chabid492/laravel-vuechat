@@ -1985,8 +1985,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Task"
+  name: "Task",
+  data: function data() {
+    return {
+      lists: []
+    };
+  },
+  mounted: function mounted() {
+    this.loadData();
+  },
+  methods: {
+    loadData: function loadData() {
+      var _this = this;
+
+      axios.get('/list').then(function (res) {
+        if (res.status == 200) {
+          console.log(res.data.tasks);
+          _this.lists = res.data.tasks;
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -37685,14 +37720,39 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "table",
+      { staticClass: "table table-bordered table-striped" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.lists, function(list) {
+          return _c("tr", { key: list.id }, [
+            _c("td", [_vm._v(_vm._s(list.name))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(list.user.name))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(list.description))])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("Task Template")])])
+    return _c("tr", { staticClass: "bg-light" }, [
+      _c("th", { attrs: { width: "30%" } }, [_vm._v("Task")]),
+      _vm._v(" "),
+      _c("th", { attrs: { width: "30%" } }, [_vm._v("Creator")]),
+      _vm._v(" "),
+      _c("th", { attrs: { width: "30%" } }, [_vm._v("Description")])
+    ])
   }
 ]
 render._withStripped = true
