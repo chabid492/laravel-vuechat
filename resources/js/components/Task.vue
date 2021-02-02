@@ -30,7 +30,7 @@
         },
         methods:{
             loadData:function(){
-                axios.get('/list')
+                axios.get('/task')
                     .then(res=>{
                     if(res.status==200){
                         console.log(res.data.tasks);

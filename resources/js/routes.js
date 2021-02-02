@@ -1,16 +1,18 @@
 import VueRouter from 'vue-router';
 import Task from './components/Task.vue';
-import Profile from './components/Profile.vue';
+import Create from './components/Create.vue';
 
 
 let routes = [
     {
         path: '/',
+        name:'Home',
         component: Task
     },
     {
-        path: '/profile',
-        component: Profile
+        path: '/create',
+        name:'Create',
+        component: Create
     }
 ];
 

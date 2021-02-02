@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Task;
+use App\Models\User;
 
 class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::where(['user_id' => Auth::user()->id])->get();
+        $tasks = Task::where(['user_id' => Auth::user()->id])
+            ->with('user')
+            ->get();
         return response()->json([
             'tasks'    => $tasks,
         ], 200);

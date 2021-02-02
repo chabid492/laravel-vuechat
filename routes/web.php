@@ -30,6 +30,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('/task', TaskController::class);
 
 //lists vue
-Route::get('/list',[ListController::class,'index'])->name('userlist');
+//Route::get('/list',[ListController::class,'index'])->name('userlist');
 
 

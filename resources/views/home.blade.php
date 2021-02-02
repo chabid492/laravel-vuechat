@@ -6,21 +6,12 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <nav class="navbar navbar-default">
-                        <div class="container-fluid">
-
-                            <ul class="nav navbar-nav d-block">
-                                <li class="nav-item d-inline-block">
-                                    <router-link  to="/">
-                                        <a>Tasks</a>
-                                    </router-link>
-                                </li>
-                                <li class="nav-item d-inline-block ml-3">
-                                    <router-link  to="/profile">
-                                        <a>Profile</a>
-                                    </router-link>
-                                </li>
-                            </ul>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+                        <div class="collapse navbar-collapse">
+                            <div class="navbar-nav">
+                                <router-link to="/" class="nav-item nav-link text-white ">Task List</router-link>
+                                <router-link to="/create" class="nav-item nav-link text-white">Create Task</router-link>
+                            </div>
                         </div>
                     </nav>
                 </div>
