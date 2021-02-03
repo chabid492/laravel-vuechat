@@ -66,9 +66,13 @@ class TaskController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit($id)
     {
-        //
+        $rec=Task::find($id);
+        return response()->json([
+            'task'    => $rec,
+            'message' => 'Success'
+        ], 200);
     }
     /**
      * Update the specified resource in storage.

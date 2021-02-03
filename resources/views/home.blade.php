@@ -1,5 +1,7 @@
 @extends('layouts.app')
+@section('css')
 
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -17,7 +19,10 @@
                 </div>
 
                 <div class="card-body" id="app">
-                    <router-view></router-view>
+                    {{--<router-view></router-view>--}}
+                    <transition name="fade">
+                        <router-view></router-view>
+                    </transition>
                 </div>
 
                 <div class="card-footer" >
