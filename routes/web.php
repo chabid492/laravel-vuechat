@@ -28,13 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     return view('app');
 })->where('any', '.*');*/
 
-Route::resource('/task', TaskController::class);
 
-//lists vue
-//Route::get('/list',[ListController::class,'index'])->name('userlist');
-
-//laravel vue phonebook project
-Route::get('/phonebook',[PhonebookController::class,'index']);
 
 Route::get('/{name}',function (){
     return redirect('/phonebook');
