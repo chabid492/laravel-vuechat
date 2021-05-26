@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ListController;
+use App\Http\Controllers\Phonebook\PhonebookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,10 @@ Route::resource('/task', TaskController::class);
 //lists vue
 //Route::get('/list',[ListController::class,'index'])->name('userlist');
 
+//laravel vue phonebook project
+Route::get('/phonebook',[PhonebookController::class,'index']);
+
+Route::get('/{name}',function (){
+    return redirect('/phonebook');
+})->where('name',['A-Za-z+']);
 

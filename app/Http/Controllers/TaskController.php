@@ -35,10 +35,15 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $validator=$this->validate($request, [
             'name'        => 'required',
             'description' => 'required',
         ]);
+
+        /*if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 422);
+        }*/
+
         $task = Task::create([
             'name'        => request('name'),
             'description' => request('description'),

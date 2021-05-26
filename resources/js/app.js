@@ -29,12 +29,18 @@ import Example from './components/ExampleComponent.vue';
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import router from './routes';
-
 Vue.use(VueRouter);
+
+let Myheader= require('./phonebook/Myheader.vue').default;
+let Myfooter= require('./phonebook/Myfooter.vue').default;
+
+import router from './phoneroutes';
 
 
 const app = new Vue({
     el: '#app',
-    router
+    //router,
+    router,
+    components:{Myheader,Myfooter},
+
 });
