@@ -28,9 +28,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     return view('app');
 })->where('any', '.*');*/
 
+Route::get('/chat',function (){
+    return view('chat.chat');
+});
 
-
-Route::get('/{name}',function (){
-    return redirect('/phonebook');
-})->where('name',['A-Za-z+']);
+/*Route::get('/{name}',function (){
+    return redirect('/chat');
+})->where('name',['A-Za-z+']);*/
 
