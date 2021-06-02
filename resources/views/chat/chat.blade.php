@@ -23,7 +23,7 @@
     <style>
         .chat-body{
             overflow-y: auto;
-            height: 200px;
+            height: 300px;
         }
     </style>
 </head>
@@ -33,11 +33,16 @@
             <div class="row" id="app">
                 <div class="col-md-6">
                     <li class="list-group-item bg-info text-white"><h4>Chat Room</h4></li>
+                    <span class="badge  badge-light">
+                        @{{ typing }}
+                    </span>
                     <ul class="list-group chat-body" v-chat-scroll>
 
-                        <Chat v-for="value in chat.message"
+                        <Chat v-for="value,index in chat.message"
                               :key="value.index"
-                              color="info">
+                              :user=chat.user[index]
+                              :color=chat.color[index]
+                              :time=chat.time[index]>
                             @{{ value }}
                         </Chat>
 
