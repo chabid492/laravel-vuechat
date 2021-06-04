@@ -16,6 +16,11 @@ Vue.use(VueRouter);
 import VueChatScroll from 'vue-chat-scroll';
 Vue.use(VueChatScroll);
 
+//for notification
+import Toaster from 'v-toaster';
+Vue.use(Toaster,{timeout:2000});
+import 'v-toaster/dist/v-toaster.css';
+
 //Vue.component('message',require('./chat/Message.vue').default);
 let Chat= require('./chat/Message.vue').default;
 const app = new Vue({
@@ -34,6 +39,7 @@ const app = new Vue({
         },
 
         typing:'',
+        numberOfusers:0,
     },
 
     //typing show when any user type
@@ -96,5 +102,22 @@ const app = new Vue({
                 }
             });
 
+        Echo.join(`chat`)
+            .here((users) => {
+                this.numberOfusers=users.length;
+            })
+            .joining((user) => {
+                this.numberOfusers +=1;
+                this.$toaster.success(user.name+' joined the chat room');
+                //console.log(user);
+            })
+            .leaving((user) => {
+                this.numberOfusers -=1;
+                this.$toaster.warning(user.name+' leaved the chat room');
+                //console.log(user);
+            })
+            .error((error) => {
+                console.error(error);
+            });
     },
 });

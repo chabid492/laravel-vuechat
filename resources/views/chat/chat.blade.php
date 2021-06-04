@@ -32,7 +32,10 @@
         <div class="container">
             <div class="row" id="app">
                 <div class="col-md-6">
-                    <li class="list-group-item bg-info text-white"><h4>Chat Room</h4></li>
+                    <li class="list-group-item bg-info text-white">
+                        <h4>Chat Room <small class="badge badge-pill badge-danger">@{{ numberOfusers }}</small></h4>
+
+                    </li>
                     <span class="badge  badge-light">
                         @{{ typing }}
                     </span>
